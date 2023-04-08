@@ -3,7 +3,7 @@ import { useQueryClient } from 'react-query'
 import { ErrorBoundary } from 'react-error-boundary'
 import { LogoutIcon, ExclamationCircleIcon } from '@heroicons/react/solid'
 import { supabase } from '../utils/supabase'
-// import useStore from '../store'
+import useStore from '../store'
 // import { Spinner } from './Spinner'
 // import { UserProfile } from './UserProfile'
 // import { Notification } from './Notification'
@@ -11,6 +11,8 @@ import { supabase } from '../utils/supabase'
 
 
 export const DashBoard: FC = () => {
+  const session = useStore((state) => state.session)
+  console.log(session)
   const signOut = () => {
     supabase.auth.signOut
   }
