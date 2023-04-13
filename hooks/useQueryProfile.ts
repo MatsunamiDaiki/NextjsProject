@@ -10,7 +10,7 @@ export const useQueryProfile = () => {
   const update = useStore((state) => state.updateEditedProfile)
   const { createProfileMutation } = useMutateProfile()
   const getProfile = async () => {
-    if (!session?.user?.id) {
+    if (!session?.user) {
       throw new Error('セッション情報が見つかりません')
     }
     const {data, error, status} = await supabase
